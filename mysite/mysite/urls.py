@@ -56,7 +56,8 @@ urlpatterns = [
     path("updatecart", views.remprod, name="remprod"),
     path("cart", views.cart, name="cart"),
     path("generateInvoice", views.sendEmailAttach, name="sendEmailAttach"),
-
+    url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}), 
+    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 
     path("<str:id>", views.prodDet, name="prodDet"),
 
 ]
