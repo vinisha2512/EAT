@@ -1,0 +1,164 @@
+
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>SIGNUP</title>
+  </head>
+  <style>
+  body{
+	background-color: #1a2035;}
+	.card{
+	background: #202940;
+	border-radius: 15px;
+	margin-bottom: 50px;
+	 box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2), 0 40px 20px 0px rgba(0, 0, 0, 0.19);
+	 width: 100%;
+	 padding-right:0px;
+	 }
+	.container{
+	margin-top:60px;
+	}
+	.btn{
+background: linear-gradient(
+60deg
+, #7b1fa2, #913f9e);
+
+width:40%;
+height: 25%;
+color: white;
+}
+.card-header{
+margin: 0px 15px 0;
+background: linear-gradient(
+60deg
+, #7b1fa2, #913f9e);
+height: 100%;
+width: 80%;
+border-radius: 6px;
+position: relative;
+margin-top: -50px;
+margin-left: 60px;
+font-weight:bold;
+font-size: 45px;
+color:white;
+padding-top:10px;
+text-align:center;
+margin-bottom:20px;}
+label{
+
+color:#a9afbbd1;
+
+}
+	</style>
+  <body>
+  <nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand font-weight-bold" href="home.html">
+
+    EAT
+  <nav class="nav nav-pills flex-column flex-sm-row justify-content-end">
+  <a class="flex-sm-fill text-sm-center nav-link text-white" href="login">LOGIN</a>
+  <a class="flex-sm-fill text-sm-center nav-link text-white active" href="signup">SIGNUP</a>
+
+</nav>
+  </a>
+</nav>
+
+<div class="container">
+  <div class="row justify-content-md-center">
+{%if message%}
+        <div class="alert alert-warning alert-dismissible" style="margin-left:20px;width:50%;">
+    <a href="{% url 'sign-up' %}" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>{{message}}</strong>
+</div>
+{%endif%}
+    <div class="col-md-auto ">
+	<div class="card " >
+      <div class="card-header ">SIGNUP</div>
+  <div class="row no-gutters">
+
+    <div class="col">
+
+      <div class="card-body">
+
+        <form action="Signup" method="post">
+          {% csrf_token %}
+<div class="form-group text-black">
+    <label for="inputName">First Name</label>
+    <input type="text" class="form-control" id="inputName" name="firstname" placeholder="ENTER YOUR FIRST NAME" required>
+	<label for="inputName">Last Name</label>
+    <input type="text" class="form-control" id="inputName" name="lastname" placeholder="ENTER YOUR LAST NAME" required>
+  </div>
+  <div class="form-row text-black">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Email</label>
+      <input type="email" class="form-control" id="inputEmail4" name="email" placeholder="ENTER YOUR EMAIL ID" required>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Password</label>
+      <input type="password" class="form-control" id="inputPassword4" name="password" placeholder="SET PASSWORD" required>
+    </div>
+  </div>
+  <div class="form-group text-black">
+    <label for="inputprn">Phone number</label>
+    <input type="text" class="form-control" id="inputprn" name="prn"  pattern="[1-9]{1}[0-9]{9}" placeholder="PHONE NUMBER" required>
+  </div>
+  <div class="form-row">
+
+    <div class="form-group col-md-4 text-black">
+      <label for="inputSem">Semester</label>
+      <select id="inputSem" class="form-control" name="semester" placeholder="choose">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+
+      </select>
+    </div>
+	<div class="form-group col-md-4 text-black">
+      <label for="inputDep">DEPARTMENT</label>
+      <select id="inputDep" class="form-control" name="department" placeholder="choose">
+        <option>IT</option>
+
+      </select>
+    </div>
+
+  <div class="form-group text-black">
+    <div class="form-check text-black">
+      <input class="form-check-input" type="checkbox" id="gridCheck" required>
+      <label class="form-check-label" for="gridCheck">
+        The above information is best of my knowledge.
+      </label>
+    </div>
+  </div>
+  </div>
+  <div class="text-center">
+  <button type="submit"  class="btn btn-dark">Sign in</button>
+  </div>
+</form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </body>
+</html>
